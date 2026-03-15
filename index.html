@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Galería de Arte | Portafolio Creativo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <section class="hero">
+        <img src="img/hero-image.webp" alt="Diseño Destacado" id="mainHero">
+    </section>
+
+    <div class="menu-container">
+        <button class="nav-arrow arrow-left" id="btnLeft">‹</button>
+        
+        <nav class="menu-scroll" id="menuScroll">
+            <a href="branding.html" class="categoria-card card-branding">
+                <div class="bg-img" style="background-image: url('img/thumb-branding.webp');"></div>
+                <span>Branding</span>
+            </a>
+
+            <a href="ilustracion.html" class="categoria-card card-ilustracion">
+                <div class="bg-img" style="background-image: url('img/thumb-ilustracion.webp');"></div>
+                <span>Ilustración</span>
+            </a>
+
+            <a href="web-design.html" class="categoria-card card-web">
+                <div class="bg-img" style="background-image: url('img/thumb-web.webp');"></div>
+                <span>Web Design</span>
+            </a>
+
+            <a href="social-media.html" class="categoria-card card-branding">
+                <div class="bg-img" style="background-image: url('img/thumb-social.webp');"></div>
+                <span>Social Media</span>
+            </a>
+
+            <a href="editorial.html" class="categoria-card card-ilustracion">
+                <div class="bg-img" style="background-image: url('img/thumb-editorial.webp');"></div>
+                <span>Editorial</span>
+            </a>
+        </nav>
+
+        <button class="nav-arrow arrow-right" id="btnRight">›</button>
+    </div>
+
+    <script>
+        const scrollContainer = document.getElementById('menuScroll');
+        const btnLeft = document.getElementById('btnLeft');
+        const btnRight = document.getElementById('btnRight');
+
+        // Al hacer clic en la derecha, desplazamos 300px
+        btnRight.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        // Al hacer clic en la izquierda, retrocedemos 300px
+        btnLeft.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        // Ocultar flechas si no hay más contenido hacia donde scrollear
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollLeft = scrollContainer.scrollLeft;
+            btnLeft.style.opacity = scrollLeft === 0 ? "0.3" : "1";
+        });
+    </script>
+
+</body>
+</html>
